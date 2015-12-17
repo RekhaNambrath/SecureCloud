@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="bootstrap.css">
-		<link rel="stylesheet" href="login.css">
+		<link rel="stylesheet" href="users.scss">
 	</head>
 	<body>
 		<div class="nav nav-pills">
@@ -19,6 +19,8 @@
         			</ul>
       			</div>
     		</div>
+		<div class="row">
+		<div class="col-md-4">		
 		<div class="login">
 			<div class="container">
     				<div class="form">
@@ -38,10 +40,26 @@
 
   
 				</div>
+			</div>
+		</div>
+		</div>
+			<div class="col-md-4">
+			<div class="login">
+			<div class="container">
+    				<div class="form">
+					<%= form_for(:session, url: login_path) do |f| %> 
+  						<%= f.email_field :email, :placeholder => "Email" %> 
+  						<%= f.password_field :password, :placeholder => "Password" %> 
+  						<%= f.submit "Log in", class: "btn-submit" %>
+					<% end %>
+
 
 
   
 				</div>
+			</div>
+		</div>			
+			
 			</div>
 		</div>			
 			
