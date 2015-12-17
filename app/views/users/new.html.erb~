@@ -43,10 +43,11 @@
 			</div>
 		</div>
 		</div>
-			<div class="col-md-4">
+		<div class="col-md-4">
 			<div class="login">
 			<div class="container">
     				<div class="form">
+					<h1>Log In</h1>
 					<%= form_for(:session, url: login_path) do |f| %> 
   						<%= f.email_field :email, :placeholder => "Email" %> 
   						<%= f.password_field :password, :placeholder => "Password" %> 
@@ -58,9 +59,8 @@
   
 				</div>
 			</div>
-		</div>			
-			
-			</div>
+			</div>			
+		</div>
 		</div>			
 			
 	</body>
