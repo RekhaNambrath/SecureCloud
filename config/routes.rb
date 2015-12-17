@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'welcome' => 'pages#home'
+  get 'cloudsp' => 'csp#cloudsp'
   get 'admin' => 'pages#admin'
   get 'tpa' => 'pages#tpa'
   get 'signup'  => 'users#new' 
