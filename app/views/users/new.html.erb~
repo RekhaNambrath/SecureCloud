@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="bootstrap.css">
+		<link rel="stylesheet" href="login.css">
+	</head>
+	<body>
+		<div class="nav nav-pills">
+      			<div class="container">
+        			<ul class="pull-left">
+          			<li><a href="#">Admin</a></li>
+          			<li><a href="#">About</a></li>
+        			</ul>
+        			<ul class="pull-right">
+          			<li><a href="#">Sign Up</a></li>
+          			<li><a href="#">Log In</a></li>
+				<li><a href="#">Tpa</a></li>
+          			<li><a href="#">Help</a></li>
+        			</ul>
+      			</div>
+    		</div>
+		<div class="login">
+			<div class="container">
+    				<div class="form">
+
+    					<h1>Sign up</h1>
+				
+
+    					<%= form_for(@user) do |f| %>
+      					<%= f.text_field :first_name, :placeholder => "First name" %><br>
+      					<%= f.text_field :last_name, :placeholder => "Last name" %><br>
+      					<%= f.email_field :email, :placeholder => "Email" %><br>
+      					<%= f.password_field :password, :placeholder => "Password" %><br>
+      					<%= f.submit "Create an account", class: "btn-submit" %><br>
+    					<% end %>
+
+  
+
+  
+				</div>
+
+
+  
+				</div>
+			</div>
+		</div>			
+			
+	</body>
+</html>
