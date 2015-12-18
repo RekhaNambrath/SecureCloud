@@ -5,29 +5,38 @@
 		<link rel="stylesheet" href="users.scss">
 	</head>
 	<body>
-		<div class="nav nav-pills">
-      			<div class="container">
-        			<ul class="pull-left">
-          			<li><a href="#">Admin</a></li>
-          			<li><a href="#">About</a></li>
-        			</ul>
-        			<ul class="pull-right">
-          			<li><a href="#">Sign Up</a></li>
-          			<li><a href="#">Log In</a></li>
-				<li><a href="#">Tpa</a></li>
-          			<li><a href="#">Help</a></li>
-        			</ul>
-      			</div>
-    		</div>
-		<div class="row">
-		<div class="col-md-4">		
-		<div class="signup">
-			<div class="container">
+	<nav class="navbar navbar-default">
+    	<div class="container-fluid">
+        <!--<ul class="pull-left">-->
+      <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      </button>
+      <a class="navbar-brand" href="welcome">Secure Cloud</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="cloudsp">Cloud</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+         <ul class="nav navbar-nav navbar-right">
+          <li><a href="signup">Sign Up</a></li>
+          <li><a href="login">Log In</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+        
+      </div>
+    </div>
+  	</nav>
+  	<div class="container">
+	<div class="row">
+		<div class="col-md-1" >	
+			
+			<div class="signup">
+				<div class="container">
+
     				<div class="form">
-
-    					<h1>Sign up</h1>
-				
-
+    					<h3>Not a member yet?</h3>
+	   					<h1>Sign up</h1>
     					<%= form_for(@user) do |f| %>
       					<%= f.text_field :first_name, :placeholder => "First name" %><br>
       					<%= f.text_field :last_name, :placeholder => "Last name" %><br>
@@ -36,32 +45,28 @@
       					<%= f.submit "Create an account", class: "btn-submit" %><br>
     					<% end %>
 
-  
-
-  
-				</div>
+  				</div>
 			</div>
+			<hr width="1" size="500">
 		</div>
 		</div>
-		<div class="col-md-4">
+	<div class="col-md-1">
+		
 			<div class="login">
-			<div class="container">
+				<div class="container">
     				<div class="form">
+    				<h3>Already member?</h3>
 					<h1>Log In</h1>
 					<%= form_for(:session, url: login_path) do |f| %> 
-  						<%= f.email_field :email, :placeholder => "Email" %> 
-  						<%= f.password_field :password, :placeholder => "Password" %> 
+  						<%= f.email_field :email, :placeholder => "Email" %> <br>
+  						<%= f.password_field :password, :placeholder => "Password" %> <br>
   						<%= f.submit "Log in", class: "btn-submit" %>
 					<% end %>
-
-
-
-  
 				</div>
 			</div>
 			</div>			
 		</div>
-		</div>			
-			
+	</div>			
+	</div>		
 	</body>
 </html>
