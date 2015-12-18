@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     		@user=User.new(user_params)
     		if @user.save
       			session[:user_id]=@user.id
-      			redirect_to '/welcome'
+      			redirect_to '/dashboard'
     		else
       			redirect_to '/signup'
     		end
