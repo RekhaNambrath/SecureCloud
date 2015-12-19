@@ -11,6 +11,7 @@
 			<div class="container">
     			<div class="form">
     				<h3>Already member?</h3>
+    				<%= flash[:danger]%>
 					<h1>Log In</h1>
 					<%= form_for(:session, url: login_path) do |f| %> 
   						<%= f.email_field :email, :placeholder => "Email" %> <br>
