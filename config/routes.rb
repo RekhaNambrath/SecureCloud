@@ -1,25 +1,19 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
+
   resource :control_panel, only: [:index, :new, :create, :destroy]
   get 'admin' => 'control_panel#index'
   get 'welcome' => 'pages#home'
-=======
+
   root 'static_pages#home'
   get 'static_pages/about'
   get 'static_pages/help'
   get 'login'=> 'sessions#new'
   post 'login' => 'sessions#create'
-  get 'cloudsp' => 'csp#cloudsp'
-  get 'admin' => 'pages#admin'
->>>>>>> 6a83ed16ac5d3abd5aa3b8a3d5a1a690cc8ebe83
   get 'tpa' => 'pages#tpa'
   delete 'logout'=> 'sessions#destroy'
-<<<<<<< HEAD
+
   get 'dashboard' => 'users#dashboard'
   #get 'adminlogin' => 'csp#login'
-=======
-  
->>>>>>> 6a83ed16ac5d3abd5aa3b8a3d5a1a690cc8ebe83
   resources :users
   resources :sessions
   # The priority is based upon order of creation: first created -> highest priority.
