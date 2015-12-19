@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= current_user.first_name.upcase %></title>
+	<link rel="stylesheet" href="bootstrap.css">
+	<link rel="stylesheet" href="users.scss">
+</head>
+<body>
+	
+	
+	<div class="row">
+  		<aside class="col-md-4">
+    		<section class="user_info">
+      			<h1>
+        			<%= @user.first_name.upcase %>
+      			</h1>
+    		</section>
+  		</aside>
+</div>
+</body>
+</html>
