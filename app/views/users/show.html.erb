@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title><%= current_user.first_name.upcase %></title>
-	<link rel="stylesheet" href="bootstrap.css">
-	<link rel="stylesheet" href="users.scss">
+    <title><%= @user.first_name.upcase %></title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="users.scss">
 </head>
 <body>
-	<div id="wrapper">
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand"><a href="#">Home</a></li>
-            <li><a href="#">Another link</a></li>
-            <li><a href="#">Next link</a></li>
-            <li><a href="#">Last link</a></li>
-        </ul>
+    <div class="row ">
+    <div class="col-md-12 col-sm-12 col-lg-12">
+    </div>              
+  </div>
+  <div class="row ">
+    <div class="col-md-12 col-sm-12 col-lg-12">
+    </div>              
+  </div>
+  <div class="row">
+    <br>
+    <div class="col-md-3 col-sm-3 col-lg-3">
+      <ul class="nav nav-pills nav-stacked">
+        <li class=" nav-first nav-home nav-path-selected active nav-item-1"><a href="/admin" target="_self"  class=" nav-first nav- home nav-item-1 "  >Dashboard</a></li>
+        <li class=" nav-item-167"><a href="/Search/" target="_self"  class=" nav-item-167 ">Search</a></li>
+        <li class=" nav-item-130"><a href="/files/" target="_self"  class=" nav-item-130 ">View Files</a></li>
+        <li class=" nav-item-979"><a href="/catalog/" target="_self"  class=" nav-item-979 ">View Responses</a></li>
+        <li class=" nav-item-165"><a href="/bootswatch/" target="_self"  class=" nav-item-165 ">Edit Profile</a></li>
+        <li class=" nav-last nav-item-1715"><a href="/custom/" target="_self"  class=" nav-last nav-item-1715 ">Delete Account</a></li>
+      </ul>   
     </div>
-    <div id="page-content-wrapper">
-        <div class="page-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <!-- content of page -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-	
-	<!--<div class="row">
-  		<aside class="col-md-4">
-    		<section class="user_info">
-      			<h1>
-        			<%= @user.first_name.upcase %>
-      			</h1>
-    		</section>
-  		</aside>
+    
+    <!--<div class="row">
+        <aside class="col-md-4">
+            <section class="user_info">
+                <h1>
+                    <%= @user.first_name.upcase %>
+                </h1>
+            </section>
+        </aside>
 </div>-->
 </body>
 </html>
