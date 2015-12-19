@@ -21,6 +21,8 @@ class SessionsController < ApplicationController
     		session[:user_id]=nil
     		redirect_to '/'
   	end
-
+  def redirect #method to redirect the page to user profile
+      redirect_to action:'show', id: current_user.id
+  end
 
 end
