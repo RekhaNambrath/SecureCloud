@@ -14,26 +14,25 @@
   display: inline;
 }
 
-.jumbotron {
+.jumbotron-special {
+  width:100%;
   background-image:url('cloud storage1.jpg');
   height: 500px;
   background-repeat: no-repeat;
   background-size: cover;
-}
 
-.jumbotron .container {
-  position: relative;
-  top:100px;
 }
-
-.jumbotron h1 {
+.jumbotron-special h1 {
   color: #fff;
   font-size: 48px;  
   font-family: 'Shift', sans-serif;
   font-weight: bold;
 }
-
-.jumbotron p {
+.jumbotron-special .container {
+  position: relative;
+  top:100px;
+}
+.jumbotron-special p {
   font-size: 20px;
   color: #fff;
 }

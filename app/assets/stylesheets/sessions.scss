@@ -9,7 +9,7 @@
   width: 300px;
 }
 .login{
-  margin-left:300px;
+  margin-left:100px;
   border-left: thick solid #2c3e50;
 }
 input[type=text],
@@ -23,7 +23,22 @@ input[type=password] {
   margin: 6px auto;
   text-indent: 10px;
 }
-
+.well{
+  margin-left:200px;
+  width:35%;
+  color:black;
+  height:300px
+}
+.well .container {
+  position: relative;
+  top:-50px;
+}
+.well h1 {
+  color: #2c3e50;
+  font-size: 48px;  
+  font-family: 'Shift', sans-serif;
+  font-weight: bold;
+}
 .btn-submit {
   color: #FFFFFF;
   font-size: 18px;
@@ -33,31 +48,53 @@ input[type=password] {
   border: 0;
   margin-top: 6px;
 }
-/* sidebar */
 
-aside {
-  section.user_info {
-    margin-top: 20px;
-  }
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-      margin-left: 30px;
-    }
-  }
+
+#sidebar-wrapper {
+  margin-left: -200px;
+  left: 250px;
+  width: 250px;
+  background: #fee;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.4s ease 0s;
 }
+
+#page-content-wrapper {
+  width: 100%;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width:767px) {
+
+    #wrapper {
+      padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+      left: 0;
+    }
+
+    #wrapper.active {
+      position: relative;
+      left: 250px;
+    }
+
+    #wrapper.active #sidebar-wrapper {
+      left: 250px;
+      width: 250px;
+      transition: all 0.4s ease 0s;
+    }
+
+}
+

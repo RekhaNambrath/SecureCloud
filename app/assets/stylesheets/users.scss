@@ -7,9 +7,9 @@ html, body { /**Disables  the horizontal scroll by fixing the width**/
     overflow-x: hidden;
 }
 .signup{
-  margin-left: 250px;
+  margin-left: 100px;
   border-left: thick solid #2c3e50;
-  
+  height:450px;
 }
 
 input[type=text],
@@ -33,7 +33,22 @@ input[type=password] {
   border: 0;
   margin-top: 6px;
 }
-
+.well{
+  margin-left:200px;
+  width:35%;
+  color:black;
+  height:500px
+}
+.well .container {
+  position: relative;
+  top:-50px;
+}
+.well h1 {
+  color: #2c3e50;
+  font-size: 48px;  
+  font-family: 'Shift', sans-serif;
+  font-weight: bold;
+}
 /* sidebar */
 
 aside {

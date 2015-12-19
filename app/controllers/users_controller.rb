@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :require_user, only: [:show,:update,:edit]
   def index
     @user=User.all
   end
@@ -21,6 +22,8 @@ class UsersController < ApplicationController
     @user=User.all
     @user=User.find(params[:id])
   end
+  def edit
+  end 
   def update
   end
   def destroy
