@@ -2,16 +2,13 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'static_pages/about'
   get 'static_pages/help'
-  get 'signup' => 'users#new'
-  post 'signup' => 'users#create'
-  get 'login' => 'users#new'
+  get 'login'=> 'sessions#new'
   post 'login' => 'sessions#create'
-  get 'home' => 'users#show'
-  #get 'users/:id' => 'users#show'
   get 'cloudsp' => 'csp#cloudsp'
   get 'admin' => 'pages#admin'
   get 'tpa' => 'pages#tpa'
   delete 'logout'=> 'sessions#destroy'
+  
   resources :users
   resources :sessions
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,44 +1,22 @@
 <!DOCTYPE html>
 <html>
 	<head>
+    <title>Sign Up - Secure Cloud</title>
 		<link rel="stylesheet" href="bootstrap.css">
 		<link rel="stylesheet" href="users.scss">
+    <link rel="javascript">
 	</head>
 	<body>
-	<!--<nav class="navbar navbar-default">
-    	<div class="container-fluid">
-      
-      <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      </button>
-      <a class="navbar-brand" href="welcome">Secure Cloud</a>
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><a href="cloudsp">Cloud</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-         <ul class="nav navbar-nav navbar-right">
-          <li><a href="signup">Sign Up</a></li>
-          <li><a href="login">Log In</a></li>
-          <li><a href="#">Help</a></li>
-        </ul>
-        
-      </div>
-    </div>
-  	</nav>-->
-  	<div class="container">
-	<div class="row">
-		<div class="col-md-1" >	
-			
+	
+  <div class="container">	
 			<div class="signup">
 				<div class="container">
 
     				<div class="form">
     					<h3>Not a member yet?</h3>
 	   					<h1>Sign up</h1>
-              <%= @message %>
-    					<%= form_for(@user) do |f| %>
+              <%= render 'shared/error_messages' %>
+                <%= form_for(@user) do |f| %>
       					<%= f.text_field :first_name, :placeholder => "First name" %><br>
       					<%= f.text_field :last_name, :placeholder => "Last name" %><br>
       					<%= f.email_field :email, :placeholder => "Email" %><br>
@@ -50,23 +28,6 @@
 			</div>
 		</div>
 		</div>
-	<div class="col-md-1">
 		
-			<div class="login">
-				<div class="container">
-    				<div class="form">
-    				<h3>Already member?</h3>
-					<h1>Log In</h1>
-					<%= form_for(:session, url: login_path) do |f| %> 
-  						<%= f.email_field :email, :placeholder => "Email" %> <br>
-  						<%= f.password_field :password, :placeholder => "Password" %> <br>
-  						<%= f.submit "Log in", class: "btn-submit" %>
-					<% end %>
-				</div>
-			</div>
-			</div>			
-		</div>
-	</div>			
-	</div>		
 	</body>
 </html>
