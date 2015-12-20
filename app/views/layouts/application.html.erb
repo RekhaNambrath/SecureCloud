@@ -23,7 +23,7 @@
          <!--<ul class="nav navbar-nav navbar-right">-->
          <% if current_user %> 
 	  		<ul class="nav navbar-nav navbar-right"> 
-	    		<li><%= link_to current_user.first_name %></a></li> 
+	    		<li><%= link_to current_user.first_name,user_path(current_user.id) %></a></li> 
 	    		<li><%= link_to "Log Out", '/logout', method: "delete" %></li> 
 	  		</ul> 
 		<% else %> 
