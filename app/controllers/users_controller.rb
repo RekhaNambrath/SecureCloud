@@ -9,13 +9,17 @@ class UsersController < ApplicationController
 	end
 	def create 
         @user=User.new(user_params) #updating the database fields for new entry
-
-    		if @user.save
+        if simple_captcha_valid?
+    		  if @user.save
       			session[:user_id]=@user.id #new session for the user
       			redirect_to action: 'show', id: @user.id
-    		else
+    		  else
       			render 'new' #if signup was unsuccessfull
-    		end
+    		  end
+        else
+          flash[:error]="Entered captcha was wrong"
+          render 'new'
+        end
   end
 	
   def show
@@ -32,7 +36,7 @@ class UsersController < ApplicationController
   end
   private 
     def user_params #which parameters are required and which ones are permitted.
-        params.require(:user).permit(:first_name,:last_name, :email, :password) 
+        params.require(:user).permit(:first_name,:last_name, :email, :password,:date_of_birth,:gender,:captcha,:captcha_key) 
     end
   
 end

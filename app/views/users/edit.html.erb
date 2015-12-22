@@ -14,57 +14,45 @@
             <!-- edit form column -->
      <div class="col-md-9 personal-info">
      	<%= form_for(@user) do |f| %>
-        <div class="alert alert-info alert-dismissable">
-          <a class="panel-close close" data-dismiss="alert">×</a> 
-          <i class="fa fa-coffee"></i>
-	      <%= render 'shared/error_messages' %>
-          This is an <strong>.alert</strong>. Use this to show important messages to the user.
-        </div>
+        
+	    <%= render 'shared/error_messages' %>
         <h3>Personal info</h3>
         
         <form class="form-horizontal" role="form">
           <div class="form-group">
-            <label class="col-lg-3 control-label">First name:</label>
-            <div class="col-lg-8">
-              <%= f.text_field :first_name, class: 'form-group' %>
-              
-            </div>
+            <%= f.text_field :first_name, :placeholder => "First name" %>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label">Last name:</label>
-            <div class="col-lg-8">
-               <%= f.text_field :last_name, class: 'form-group' %>
-            </div>
+           <%= f.text_field :last_name, :placeholder => "Last name" %>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label">Date of Birth:</label>
-            <div class="col-lg-8">
-              <input class="form-control" value="" type="text">
-            </div>
+            <%= label_tag(:date_of_birth, "Date of Birth:") %>
+            <%= date_select :user, :date_of_birth, :start_year => 1990,:use_month_numbers => true, :order => [:day,:month,:year], :html=>{:class => "form-group"} %>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label">Email:</label>
-            <div class="col-lg-8">
-              <%= f.email_field :email, class: 'form-group' %>
-            </div>
+            <label>Gender:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label>Male</label>&nbsp;&nbsp;&nbsp;&nbsp;
+             <%= radio_button :user, :gender, "male" %>&nbsp;&nbsp;&nbsp;&nbsp;
+      
+            <label>Female</label>&nbsp;&nbsp;&nbsp;&nbsp;
+             <%= radio_button :user,:gender, "female" %>
+            
           </div>
           <div class="form-group">
-            <label class="col-md-3 control-label">Username:</label>
-            <div class="col-md-8">
-              <input class="form-control" value="janeuser" type="text">
-            </div>
+            <%= f.email_field :email, :placeholder => "Email" %><br>
+          </div>
+         
+          <div class="form-group">
+           <%= f.password_field :password, :placeholder => "Old Password" %><br>
           </div>
           <div class="form-group">
-            <label class="col-md-3 control-label">Password:</label>
-            <div class="col-md-8">
-              <%= f.password_field :password, class: 'form-group' %>
-            </div>
+           <%= f.password_field :password, :placeholder => "New Password" %><br>
           </div>
           
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-             <%= f.submit "Save changes", class: "btn btn-primary" %>
+             <%= f.submit "Save Changes", class: "btn btn-primary" %>
               <span></span>
               <input class="btn btn-default" value="Cancel" type="reset">
             </div>
@@ -76,3 +64,4 @@
 </div>
 <hr>
 </body>
+</html>

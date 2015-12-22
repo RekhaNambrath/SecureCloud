@@ -1,33 +1,66 @@
 <!DOCTYPE html>
 <html>
-	<head>
-    <title>Sign Up - Secure Cloud</title>
-		<link rel="stylesheet" href="bootstrap.css">
-		<link rel="stylesheet" href="users.scss">
-    <link rel="javascript">
-	</head>
-	<body>
+<head>
+    <title> Sign Up </title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="users.scss">
+</head>
+<body>
 	
-  	<div class="well">	
-			<div class="signup">
-				<div class="container">
-
-    				<div class="form">
-    					<h3>Not a member yet?</h3>
-	   					<h1>Sign up</h1>
-              <%= render 'shared/error_messages' %>
-                <%= form_for(@user) do |f| %>
-      					<%= f.text_field :first_name, :placeholder => "First name" %><br>
-      					<%= f.text_field :last_name, :placeholder => "Last name" %><br>
-      					<%= f.email_field :email, :placeholder => "Email" %><br>
-      					<%= f.password_field :password, :placeholder => "Password" %><br>
-      					<%= f.submit "Create an account", class: "btn-submit" %><br>
-    					<% end %>
-
-  				</div>
-			</div>
-		</div>
-	</div>
-		
-	</body>
+	<div class="container">
+    <h1>Sign Up</h1>
+  	<hr>
+	<div class="row">
+            <!-- edit form column -->
+     <div class="col-md-9 personal-info">
+     	<%= form_for(@user) do |f| %>
+        <%= render 'shared/error_messages' %>
+        <strong><%=flash[:error]%></strong>
+        <h3>Personal info</h3>
+        
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <%= f.text_field :first_name, :placeholder => "First name" %>
+          </div>
+          <div class="form-group">
+           <%= f.text_field :last_name, :placeholder => "Last name" %>
+          </div>
+          <div class="form-group">
+            <%= label_tag(:date_of_birth, "Date of Birth:") %>
+            <%= date_select :user, :date_of_birth, :start_year => 1990,:use_month_numbers => true, :order => [:day,:month,:year], :html=>{:class => "form-group"} %>
+          </div>
+          <div class="form-group">
+            <label>Gender:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label>Male</label>&nbsp;&nbsp;&nbsp;&nbsp;
+             <%= radio_button :user, :gender, "male" %>&nbsp;&nbsp;&nbsp;&nbsp;
+      
+            <label>Female</label>&nbsp;&nbsp;&nbsp;&nbsp;
+             <%= radio_button :user,:gender, "female" %>
+            
+          </div>
+          <div class="form-group">
+            <%= f.email_field :email, :placeholder => "Email" %><br>
+          </div>
+         
+          <div class="form-group">
+           <%= f.password_field :password, :placeholder => "Password" %><br>
+          </div>
+          <div class="form-group">
+          <%= show_simple_captcha label: 'Please enter validation code' %>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+             <%= f.submit "Create Account", class: "btn btn-primary" %>
+              <span></span>
+              <input class="btn btn-default" value="Cancel" type="reset">
+            </div>
+          </div>
+          <% end %>
+        </form>
+      </div>
+  </div>
+</div>
+<hr>
+</body>
 </html>

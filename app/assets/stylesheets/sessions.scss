@@ -23,22 +23,7 @@ input[type=password] {
   margin: 6px auto;
   text-indent: 10px;
 }
-.well{
-  margin-left:200px;
-  width:35%;
-  color:black;
-  height:300px
-}
-.well .container {
-  position: relative;
-  top:-50px;
-}
-.well h1 {
-  color: #2c3e50;
-  font-size: 48px;  
-  font-family: 'Shift', sans-serif;
-  font-weight: bold;
-}
+
 .btn-submit {
   color: #FFFFFF;
   font-size: 18px;
@@ -47,6 +32,7 @@ input[type=password] {
   padding: 10px 20px;
   border: 0;
   margin-top: 6px;
+  width:100%;
 }
 
 

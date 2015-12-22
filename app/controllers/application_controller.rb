@@ -11,5 +11,6 @@ class ApplicationController < ActionController::Base
   		redirect_to '/sessions/new' unless current_user 
 	end
 	
+include SimpleCaptcha::ControllerHelpers
 
 end
