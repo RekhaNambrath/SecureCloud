@@ -19,6 +19,8 @@ gem 'mysql2','~> 0.3.18'
 gem 'carrierwave'
 #gem 'rmagick'
 gem 'fog'
+#to use bootstrap
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
