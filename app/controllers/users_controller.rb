@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_user, only: [:show,:update,:edit]
+  before_filter :correct_user, only:[:show,:edit,:update]
   def index
     @user=User.all
   end

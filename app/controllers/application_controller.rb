@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
 	def require_user # checking if user is logged in before redirecting to direct links
   		redirect_to '/sessions/new' unless current_user 
 	end
+  def correct_user
+    @user=User.find(params[:id])
+    redirect_to(root_url) unless @user==current_user
+  end  
 	
 include SimpleCaptcha::ControllerHelpers
 
