@@ -7,13 +7,18 @@ html, body { /**Disables  the horizontal scroll by fixing the width**/
     max-width: 100%;
     overflow-x: hidden;
 }
-
+input[type="text"] {
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s;
+}
 
 .stylish-input-group .input-group-addon{
     background: white !important; 
 }
 .stylish-input-group .form-control{
   border-right:0; 
+  border: solid 1px #dcdcdc;
   box-shadow:0 0 0; 
   border-color:#ccc;
 }
@@ -35,4 +40,15 @@ button
 outline: none;
 border: 0;
 background: transparent;
+}
+.navbar-inverse {
+  background-color:#3498DB ;
+  border-color: #777777;
+  color:#fff;
+}
+.navbar-inverse .nav{
+  padding-top: 15px;
+}
+.navbar-inverse .nav li a{
+ color:#fff;
 }

@@ -2,61 +2,23 @@
 <html>
 <head>
     <title><%= @user.first_name.upcase %></title>
-    <link rel="img" href="glyphicons-halflings-white.png">
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="users.scss">
 </head>
 <body>
-    <div class="row ">
+
+<div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <%= render 'shared/flash_messages' %>
-    </div>              
-  </div>
-  <div class="row ">
-    <div class="col-md-12 col-sm-12 col-lg-12">
-    </div>              
-  </div>
-  <div class="row">
-    <br>
-    <div class="col-md-3 col-sm-3 col-lg-3">
-      <ul class="nav nav-pills nav-stacked">
-        <li class=" nav-first nav-home nav-path-selected active nav-item-1"><a href="#" target="_self"  class=" nav-first nav- home nav-item-1 "  >Dashboard</a></li>
-        <li class=" nav-item-167"><a href="/Search/" target="_self"  class=" nav-item-167 ">Search</a></li>
-        <li class=" nav-item-130"><a href="/files/" target="_self"  class=" nav-item-130 ">My Library</a></li>
-        <li class=" nav-item-979"><a href="/audit/" target="_self"  class=" nav-item-979 ">View Messages</a></li>
-        <li class=" nav-item-165"><%= link_to "Edit Profile",edit_user_path(current_user.id)%></li>
-        <li class=" nav-last nav-item-1715"><a href="/custom/" target="_self"  class=" nav-last nav-item-1715 ">Delete Account</a></li>
-      </ul>   
-    </div>
-    <div class="col-md-6 col-sm-6 col-lg-6">
+    </div>    
+</div>  
+<%= render 'user'%><br><br><br><br>  
+    <div class="col-md-7 col-sm-7 col-lg-7">     
         <div class="form-group has-feedback">
-        <label class="control-label">Fuzzy Keyword Search</label><br>
-        <input type="text" class="form-control" placeholder="Search" />
-        <button type="submit" class="glyphicon glyphicon-search form-control-feedback"></button>
+        <label class="control-label">Fuzzy Keyword Search</label>
+        <input type="text" class="form-control" placeholder="Search"/>
+        <i class="glyphicon glyphicon-search form-control-feedback"></i>
         </div>
-        
-               <!-- <div class="input-group stylish-input-group">
-                    <input type="text" class="form-control"  placeholder="Search" >
-                    <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-search form-control-feedback"></i>
-                        <button type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>  
-                    </span>
-                </div>-->
-    </div>  
-    <div class="col-md-3 col-sm-3 col-lg-3">
-    
-    <div class="panel panel-primary">
-    <div class="panel-heading"><%=@user.first_name%></div>
-    <div class="panel-body">
-        <label>Name:</label><%= @user.first_name+' '+@user.last_name%><br>
-        <label>Gender:</label><%= @user.gender %><br>
-        <label>Date of Birth:</label><%= @user.date_of_birth %><br>
     </div>
-    </div>
-    </div>
-   </div> 
-</div>
 </body>
 </html>

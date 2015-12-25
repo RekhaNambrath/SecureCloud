@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Users</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="users.scss">
+</head>
+<body>
+	<%= render 'user'%>
+	<div class="col-md-3">
+    <h3>View All</h3>
+    <%= will_paginate %>
+  	<ul class="nav nav-pills nav-stacked">
+  		<% @users.each do |user|%>
+  			<li><%=link_to user.first_name,user%></li>
+  		<%end%>
+  	</ul>
+  	<%= will_paginate %>
+
+  	</div>
+ </body>
+</html>
+

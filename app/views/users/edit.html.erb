@@ -6,17 +6,16 @@
     <link rel="stylesheet" href="users.scss">
 </head>
 <body>
-	
+	<%= render 'user'%>
+  <br><br><br>
 	<div class="container">
-    <h1>Edit Profile</h1>
-  	<hr>
+    <h3>&nbsp;&nbsp;&nbsp;Edit Profile</h3>
 	<div class="row">
             <!-- edit form column -->
      <div class="col-md-9 personal-info">
      	<%= form_for(@user) do |f| %>
         
 	    <%= render 'shared/error_messages' %>
-        <h3>Personal info</h3>
         
         <form class="form-horizontal" role="form">
           <div class="form-group">

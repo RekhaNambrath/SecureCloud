@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  before_filter :require_user, only: [:show,:update,:edit]
-  before_filter :correct_user, only:[:show,:edit,:update]
+  #before_filter :require_user, only: [:index,:update,:edit]
+  #before_filter :correct_user, only:[:edit,:update]
   def index
-    @user=User.all
+   @user=current_user
+   @users = User.paginate(page: params[:page]) #will display results in pages with 30 in each
   end
 	def new #adding a new entry in database
 		@user=User.new
@@ -24,12 +25,12 @@ class UsersController < ApplicationController
   end
 	
   def show
-    @user=User.all
+   @user=User.all
     @user=User.find(params[:id])
   end
   def edit
-    @user=User.find(params[:id])
-  end 
+   @user=User.find(params[:id])
+  end
   def update
     @user=User.find(params[:id])
     if @user.update_attributes(user_params)
@@ -41,7 +42,11 @@ class UsersController < ApplicationController
     end  
   end
   def destroy
-    redirect_to '/sessions/destroy'
+    session[:user_id] = nil
+    User.find(params[:id]).destroy
+    redirect_to '/'
+    flash[:success] = "User deleted"
+    
   end
   private 
     def user_params #which parameters are required and which ones are permitted.
