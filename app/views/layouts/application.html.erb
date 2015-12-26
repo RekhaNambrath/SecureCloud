@@ -3,6 +3,7 @@
 <head>
   
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -23,13 +24,13 @@
          <!--<ul class="nav navbar-nav navbar-right">-->
          <% if current_user %> 
 	  		<ul class="nav navbar-nav navbar-right"> 
-	    		<li><%= link_to current_user.first_name %></a></li> 
+	    		<li><%= link_to current_user.first_name,user_path(current_user.id) %></a></li> 
 	    		<li><%= link_to "Log Out", '/logout', method: "delete" %></li> 
 	  		</ul> 
 		<% else %> 
   			<ul class="nav navbar-nav navbar-right"> 
-    			<li><a href="/users/new">Sign Up</a></li>
-          		<li><a href="/sessions/new">Log In</a></li>
+    			<li><%= link_to "Sign Up ",new_user_path%></li>
+          		<li><a href="/sessions/new"> Log In</a></li>
           		<li><a href="/static_pages/help">Help</a></li>
         	</ul>
         <% end %>

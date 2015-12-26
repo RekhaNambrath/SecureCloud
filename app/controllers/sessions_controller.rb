@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
           redirect_to current_user
     	else
           flash[:danger] = 'Invalid email/password combination' 
-          render 'new' #unsuccessful login
+          redirect_to '/login' #unsuccessful login
   		end 
 	end
   #def show

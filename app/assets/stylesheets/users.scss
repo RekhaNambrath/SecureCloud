@@ -1,79 +1,54 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
 /* FORM PAGES */
 html, body { /**Disables  the horizontal scroll by fixing the width**/
     max-width: 100%;
     overflow-x: hidden;
 }
-.signup{
-  margin-left: 100px;
-  border-left: thick solid #2c3e50;
-  height:450px;
+input[type="text"] {
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s;
 }
 
-input[type=text],
-input[type=email],
-input[type=password] {
-  color: #000070;
-  width: 100%;
-  border: 3px solid #E6E6E6;
-  border-radius: 0px; 
-  height: 60px;
-  margin: 6px auto;
-  text-indent: 10px;
+.stylish-input-group .input-group-addon{
+    background: white !important; 
 }
-
-.btn-submit {
-  color: #FFFFFF;
-  font-size: 18px;
-  text-transform: uppercase;
-  background: #2c3e50;
-  padding: 10px 20px;
-  border: 0;
-  margin-top: 6px;
+.stylish-input-group .form-control{
+  border-right:0; 
+  border: solid 1px #dcdcdc;
+  box-shadow:0 0 0; 
+  border-color:#ccc;
 }
-.well{
-  margin-left:200px;
-  width:35%;
-  color:black;
-  height:500px
+.stylish-input-group button{
+    border:0;
+    background:transparent;
 }
-.well .container {
-  position: relative;
-  top:-50px;
+div.container a.input-group-btn {
+    font-size: 14px;
 }
-.well h1 {
-  color: #2c3e50;
-  font-size: 48px;  
-  font-family: 'Shift', sans-serif;
-  font-weight: bold;
+.form-control + .glyphicon {
+  position: absolute;
+  right: 0;
+  padding: 10px 35px;
 }
-/* sidebar */
-
-aside {
-  section.user_info {
-    margin-top: 20px;
-  }
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-      margin-left: 30px;
-    }
-  }
+button
+{
+-webkit-appearance: none;
+outline: none;
+border: 0;
+background: transparent;
+}
+.navbar-inverse {
+  background-color:#3498DB ;
+  border-color: #777777;
+  color:#fff;
+}
+.navbar-inverse .nav{
+  padding-top: 15px;
+}
+.navbar-inverse .nav li a{
+ color:#fff;
 }

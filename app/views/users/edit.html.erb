@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> Sign Up </title>
+    <title><%= @user.first_name.upcase %></title>
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="users.scss">
 </head>
 <body>
-	
+	<%= render 'user'%>
+  <br><br><br>
 	<div class="container">
-    <h1>Sign Up</h1>
-  	<hr>
+    <h3>&nbsp;&nbsp;&nbsp;Edit Profile</h3>
 	<div class="row">
             <!-- edit form column -->
      <div class="col-md-9 personal-info">
      	<%= form_for(@user) do |f| %>
-        <%= render 'shared/error_messages' %>
-        <strong><%=flash[:error]%></strong>
-        <h3>Personal info</h3>
+        
+	    <%= render 'shared/error_messages' %>
         
         <form class="form-horizontal" role="form">
           <div class="form-group">
@@ -43,15 +42,16 @@
           </div>
          
           <div class="form-group">
-           <%= f.password_field :password, :placeholder => "Password" %><br>
+           <%= f.password_field :password, :placeholder => "Old Password" %><br>
           </div>
           <div class="form-group">
-          <%= show_simple_captcha label: 'Please enter validation code' %>
+           <%= f.password_field :password, :placeholder => "New Password" %><br>
           </div>
+          
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-             <%= f.submit "Create Account", class: "btn btn-primary" %>
+             <%= f.submit "Save Changes", class: "btn btn-primary" %>
               <span></span>
               <input class="btn btn-default" value="Cancel" type="reset">
             </div>

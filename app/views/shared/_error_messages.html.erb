@@ -7,17 +7,20 @@
   </head>
   <body>
 <% if @user.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-danger">
+<div class="alert alert-info alert-dismissable">
+  <a class="panel-close close" data-dismiss="alert">×</a> 
+  <i class="fa fa-coffee"></i>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
       The form contains <%= pluralize(@user.errors.count, "error") %>.
-    </div>
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
+      </div>
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-
-<% end %>
+      <% end %>
+      </ul>
+    </div>
+</div>  
+  <% end %>
 </body>
 </html>
