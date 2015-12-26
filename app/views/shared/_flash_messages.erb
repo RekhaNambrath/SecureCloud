@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign Up - Secure Cloud</title>
+    <script src="jquery.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="error_messages.scss">
+  </head>
+  <body>
+  <% if flash[:success]%>
+  <div class="alert alert-success fade in"> 
+        <span class="close" data-dismiss="alert" aria-label="close"> &times;</span>
+            <%= flash[:success]%>
+    </div>
+    <% end %>
+   </body>
+   </html>
