@@ -30,6 +30,10 @@ class FileUploadsController < ApplicationController
       if @file_upload.save
         format.html { redirect_to @file_upload, notice: 'File was successfully uploaded.' }
         format.json { render :show, status: :created, location: @file_upload }
+        @md5 = Digest::MD5.file(@file_upload.attachment.path).hexdigest 
+        @file_upload[:hash_val]=@md5
+        @file_upload.save
+
       else
         format.html { render :new }
         format.json { render json: @file_upload.errors, status: :unprocessable_entity }
