@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :file_uploads
+  get 'uploads' => 'file_uploads#index'
   resource :control_panel, only: [:index, :new, :create, :destroy]
   get 'admin' => 'control_panel#index'
+  get '/admin/files' => 'control_panel#file'
   root 'static_pages#home'
   get 'static_pages/about'
   get 'static_pages/help'
