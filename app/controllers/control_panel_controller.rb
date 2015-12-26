@@ -12,4 +12,9 @@ class ControlPanelController < ApplicationController
 
   def destroy
   end
+
+  def file
+  	@file_uploads = FileUpload.all
+  end
+
 end

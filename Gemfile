@@ -17,6 +17,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'carrierwave'
 #gem 'rmagick'
 gem 'fog'
+gem 'mysql2', '~> 0.3.20'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
