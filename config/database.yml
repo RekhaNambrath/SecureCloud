@@ -19,7 +19,7 @@ default: &default
 
 development:
   <<: *default
-  database: project_1_development
+  database: cloud_development
 
 
 # Warning: The database defined as "test" will be erased and
@@ -27,7 +27,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: project_1_test
+  database: cloud_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -50,6 +50,4 @@ test:
 #
 production:
   <<: *default
-  database: project_1_production
-  username: project_1
-  password: <%= ENV['PROJECT_1_DATABASE_PASSWORD'] %>
+  database: cloud_production

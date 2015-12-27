@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  #before_filter :require_user, only: [:index,:update,:edit]
-  #before_filter :correct_user, only:[:edit,:update]
+  before_filter :require_user, only: [:index,:update,:edit]
+  before_filter :correct_user, only:[:edit,:update]
   def index
    @user=current_user
    @users = User.paginate(page: params[:page]) #will display results in pages with 30 in each
@@ -36,10 +36,13 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
-
     else
         render 'edit'
     end  
+  end
+  def library
+    @user=User.find(params[:id])
+    redirect_to action: 'file_uploads/index', id: @user.id
   end
   def destroy
     session[:user_id] = nil

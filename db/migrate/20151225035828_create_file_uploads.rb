@@ -6,7 +6,6 @@ class CreateFileUploads < ActiveRecord::Migration
       t.string :ftype
       t.text :keywords
       t.string :attachment
-
       t.timestamps null: false
     end
   end

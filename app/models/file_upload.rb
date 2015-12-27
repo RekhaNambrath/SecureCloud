@@ -4,4 +4,5 @@ class FileUpload < ActiveRecord::Base
    validates :fname, presence: true 
    validates :ftype, presence: true 
    validates :keywords, presence: true 
+   belongs_to :user
 end

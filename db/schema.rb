@@ -11,17 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151225035828) do
-
-  create_table "file_uploads", force: :cascade do |t|
-    t.string   "fname",      limit: 255
-    t.string   "owner",      limit: 255
-    t.string   "ftype",      limit: 255
-    t.text     "keywords",   limit: 65535
-    t.string   "attachment", limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
+ActiveRecord::Schema.define(version: 20151227033133) do
 
   create_table "simple_captcha_data", force: :cascade do |t|
     t.string   "key",        limit: 40

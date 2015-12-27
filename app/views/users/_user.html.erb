@@ -33,7 +33,7 @@
             <li class="<%= 'active' if params[:show] == 'show' %>"><strong> <%= link_to "Home",user_path(current_user.id)%></strong></li>
             <li class="<%= 'active' if params[:edit] == 'edit' %>"><strong> <%= link_to "Edit Profile",edit_user_path(current_user)%></strong> </li>
             <li class="<%= 'active' if params[:index] =='index' %>"><strong><%= link_to "View all Users",users_path%></strong> </li> 
-            <li><strong><%= link_to "Library",users_path%></strong> </li> 
+            <li><strong><%= link_to "Library",'/library'%></strong> </li> 
             <li><strong><%= link_to "Messages",users_path%></strong> </li> 
             <li><strong><%= link_to "destroy", @user, method: :delete,data: { confirm: "You sure?" } %></strong></li> 
           </ul>

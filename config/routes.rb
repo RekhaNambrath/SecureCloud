@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   get 'login'=> 'sessions#new'
   post 'login' => 'sessions#create'
   get 'tpa' => 'pages#tpa'
+  get 'library'=> 'users#library'
   delete 'logout'=> 'sessions#destroy'
-  #get 'redirect' => 'sessions#redirect'
   resources :users
   resources :sessions
   # The priority is based upon order of creation: first created -> highest priority.
