@@ -6,7 +6,7 @@ class FileUploadsController < ApplicationController
   # GET /file_uploads.json
   def index
     @user=User.find(params[:user_id])
-    @file_uploads = @user.file_uploads.all
+    @file_uploads = @user.file_uploads.paginate(page: params[:page], :per_page => 10)
   end
 
   # GET /file_uploads/1

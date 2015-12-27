@@ -5,8 +5,10 @@
 <% end %>
 <br />
 <%= render 'file'%>
+
 <div class="col-md-5">
 <table class = "table table-bordered table-striped" width="0%">
+<%= will_paginate %>
   <thead>
     <tr>
       <th>Owner</th>
@@ -24,7 +26,6 @@
         <td><%= file_upload.fname %></td>
         <td><%= file_upload.keywords %></td>
         <td><%= file_upload.hash_val %></td>
-        
         <td><%= link_to 'Download', file_upload.attachment_url, class: "btn btn-success"%></td>
         <td><%= link_to 'Edit', edit_user_file_upload_path(current_user,file_upload), class: "btn btn-warning"%></td>
         <td><%= link_to 'Delete', user_file_upload_path(current_user,file_upload), method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
