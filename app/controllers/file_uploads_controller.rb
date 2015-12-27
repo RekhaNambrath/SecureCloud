@@ -1,35 +1,39 @@
 class FileUploadsController < ApplicationController
-  before_action :set_file_upload, only: [:show, :edit, :update, :destroy]
-  before_filter :correct_user, only:[:new,:create,:edit,:update]
+  before_action :set_file_upload, only: [:show, :edit, :update]
+  before_filter :correct_user, only:[:index,:new,:create,:edit,:update,:destroy]
 
   # GET /file_uploads
   # GET /file_uploads.json
   def index
-    @file_uploads = FileUpload.all
+    @user=User.find(params[:user_id])
+    @file_uploads = @user.file_uploads.all
   end
 
   # GET /file_uploads/1
   # GET /file_uploads/1.json
   def show
+    @user=User.find(params[:user_id])
   end
 
   # GET /file_uploads/new
   def new
-    @file_upload = FileUpload.new
+    @file_upload = @user.file_uploads.new
   end
 
   # GET /file_uploads/1/edit
   def edit
+   # @user=User.find(params[:user_id])
   end
 
   # POST /file_uploads
   # POST /file_uploads.json
   def create
-    @file_upload = FileUpload.new(file_upload_params)
+    @user=User.find(params[:user_id])
+    @file_upload = @user.file_uploads.new(file_upload_params)
 
     respond_to do |format|
       if @file_upload.save
-        format.html { redirect_to @file_upload, notice: 'File was successfully uploaded.' }
+        format.html { redirect_to user_file_upload_path(@user,@file_upload), notice: 'File was successfully uploaded.' }
         format.json { render :show, status: :created, location: @file_upload }
         @md5 = Digest::MD5.file(@file_upload.attachment.path).hexdigest 
         @file_upload[:hash_val]=@md5
@@ -47,7 +51,7 @@ class FileUploadsController < ApplicationController
   def update
     respond_to do |format|
       if @file_upload.update(file_upload_params)
-        format.html { redirect_to @file_upload, notice: 'File was successfully updated.' }
+        format.html { redirect_to user_file_upload_path, notice: 'File was successfully updated.' }
         format.json { render :show, status: :ok, location: @file_upload }
       else
         format.html { render :edit }
@@ -59,9 +63,10 @@ class FileUploadsController < ApplicationController
   # DELETE /file_uploads/1
   # DELETE /file_uploads/1.json
   def destroy
+    @file_upload=@user.file_uploads.find(params[:id])
     @file_upload.destroy
     respond_to do |format|
-      format.html { redirect_to file_uploads_url, notice: 'File was successfully destroyed.' }
+      format.html { redirect_to user_file_uploads_path, notice: 'File was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

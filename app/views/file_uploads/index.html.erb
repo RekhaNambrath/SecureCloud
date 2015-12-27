@@ -4,21 +4,14 @@
    </div>
 <% end %>
 <br />
-<%= link_to "New File upload", new_file_upload_path, class: "btn btn-primary"%>
-<br />
-<br />
-
-<p id="notice"><%= notice %></p>
-<center><h1>Listing File Uploads</h1></center><br><br>
-
-
+<%= render 'file'%>
+<div class="col-md-5">
 <table class = "table table-bordered table-striped" width="0%">
   <thead>
     <tr>
       <th>Owner</th>
       <th>Filename</th>
       <th>Keywords</th>
-      <!--<th>Attachment</th>-->
       <th>Hash value</th>
       <th colspan="5"></th>
     </tr>
@@ -30,15 +23,15 @@
         <td><%= file_upload.owner %></td>
         <td><%= file_upload.fname %></td>
         <td><%= file_upload.keywords %></td>
-        <!--<td><%= file_upload.attachment %></td>-->
         <td><%= file_upload.hash_val %></td>
         
         <td><%= link_to 'Download', file_upload.attachment_url, class: "btn btn-success"%></td>
-        <td><%= link_to 'Edit', edit_file_upload_path(file_upload), class: "btn btn-warning"%></td>
-        <td><%= link_to 'Destroy', file_upload, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Send Hash', edit_file_upload_path(file_upload), class: "btn btn-default"%></td>
-        <td><%= link_to 'Request Audit', edit_file_upload_path(file_upload), class: "btn btn-info"%></td>
+        <td><%= link_to 'Edit', edit_user_file_upload_path(current_user,file_upload), class: "btn btn-warning"%></td>
+        <td><%= link_to 'Delete', user_file_upload_path(current_user,file_upload), method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Send Hash', edit_user_file_upload_path(current_user,file_upload), class: "btn btn-default"%></td>
+        <td><%= link_to 'Request Audit', edit_user_file_upload_path(current_user,file_upload), class: "btn btn-info"%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>

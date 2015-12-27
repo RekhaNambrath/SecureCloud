@@ -9,8 +9,9 @@
       
    </div>
 <% end %>
+<%= render 'file'%>
 <div class = "well">
-   <%= form_for @file_upload, html: { multipart: true } do |f| %>
+   <%= form_for [@user,@file_upload], html: { multipart: true } do |f| %>
        <%= f.label :Ownername %>
       <%= f.text_field :owner %>
 

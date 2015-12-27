@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :file_uploads
   get 'uploads' => 'file_uploads#index'
   resource :control_panel, only: [:index, :new, :create, :destroy]
   get 'admin' => 'control_panel#index'
@@ -11,9 +10,10 @@ Rails.application.routes.draw do
   get 'login'=> 'sessions#new'
   post 'login' => 'sessions#create'
   get 'tpa' => 'pages#tpa'
-  get 'library'=> 'users#library'
   delete 'logout'=> 'sessions#destroy'
-  resources :users
+  resources :users do 
+    resources :file_uploads
+  end
   resources :sessions
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

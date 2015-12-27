@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   		redirect_to '/sessions/new' unless current_user 
 	end
   def correct_user #checking authorization
-    @user=User.find(params[:id])
+    @user=User.find(params[:user_id])
     redirect_to(root_url) unless @user==current_user
   end  
   def same_user

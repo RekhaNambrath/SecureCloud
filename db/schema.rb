@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20151227033445) do
 
   create_table "file_uploads", force: :cascade do |t|
@@ -25,7 +24,6 @@ ActiveRecord::Schema.define(version: 20151227033445) do
     t.string   "hash_val",   limit: 255,   default: ""
     t.integer  "user_id",    limit: 4
   end
-
 
   add_index "file_uploads", ["user_id"], name: "index_file_uploads_on_user_id", using: :btree
 

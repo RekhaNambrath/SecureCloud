@@ -14,7 +14,7 @@
 <h1>Editing File Upload</h1>
 
 <div class = "well">
-   <%= form_for @file_upload, html: { multipart: true } do |f| %>
+   <%= form_for [@user,@file_upload], html: { multipart: true } do |f| %>
       <%= f.label :Ownername %>
       <%= f.text_field :owner %>
 
@@ -34,5 +34,5 @@
    <% end %>
 </div>
 
-<%= link_to 'Show', @file_upload %> |
-<%= link_to 'Back', file_uploads_path %>
+<%= link_to 'Show', user_file_upload_path %> |
+<%= link_to 'Back', user_file_uploads_path %>
