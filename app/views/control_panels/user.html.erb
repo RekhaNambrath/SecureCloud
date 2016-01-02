@@ -1,0 +1,56 @@
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="bootstrap.css">
+		<link rel="stylesheet" href="control_panel.scss">
+		
+		<TITLE>Admin</TITLE>
+
+	</head>
+	<body>
+	<center>
+		<h1>Listing Users</h1>
+	</center>
+<br />
+<br />
+	<div class="row">
+		<br>
+		<%= render 'sidebar' %>
+    <div class="col-md-3 col-sm-3 col-lg-3">
+
+		<table class = "table table-bordered table-striped">
+  		<thead>
+    	<tr>
+          <th>User id</th>
+      		<th>Name</th>
+          <th> No of files</th>
+      		
+    	</tr>
+  		</thead>
+
+  		<tbody>
+    		<% @users.each do |user| %>
+      		<tr>
+            <td><%= user.id %></td>
+        		<td><%= user.first_name + " " +user.last_name  %></td>
+            <td><%= user.file_uploads.count %> </td>
+        		
+      		</tr>
+    		<% end %>
+  		</tbody>
+		</table>
+	</div>
+  <div class="col-md-3 col-sm-3 col-lg-3">
+    <%= form_tag(user_search_control_panel_path,:method => 'get', id: "search-form") do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil, class: "btn btn-success" %>
+    <% end %>
+  </div>
+	</div>
+	</body>
+	</html>

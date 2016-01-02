@@ -1,0 +1,55 @@
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="control_panel.scss">
+    <title>Listing users</title>
+     
+</head>
+<body>
+
+    <center>
+      <h1>Listing User</h1>
+    </center>
+    <br />
+    <br />
+    <div class="row">
+    <br>
+      <%= render 'sidebar' %>
+
+      <div class="container">
+      <div class="row">
+      <% @users.each do |user| %>
+
+        <div class="col-sm-10"><h1><%=@user.first_name%></h1></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3"><!--left col-->
+              
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-info text-muted">Profile</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>First name</strong></span> <%= @user.first_name%></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Last name</strong></span> <%= @user.last_name%></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Email</strong></span> 
+            <%= @user.email %></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Gender</strong></span> 
+            <%= @user.gender %></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Birthday</strong></span> <%= @user.date_of_birth %></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>No.of.Files</strong></span> <span class="badge"> <%= @user.file_uploads.count %></span></li>
+            
+          </ul> 
+        </div>
+    </div>
+    </div>
+    </div>
+    <% end %>
+        
+
+   
+</body>
+</html>
