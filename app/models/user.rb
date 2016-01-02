@@ -11,8 +11,12 @@ class User < ActiveRecord::Base
 	validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
 	has_many :file_uploads, :dependent => :destroy
-  def self.search(query)
-    where("email like ?", "%#{query}%") 
+  def self.search(search)
+  if search
+    self.where("name like ?", "%#{search}%")
+  else
+    self.all
   end
+end
 
 end

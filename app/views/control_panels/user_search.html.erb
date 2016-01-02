@@ -1,35 +1,35 @@
-<% if !flash[:notice].blank? %>
+  <% if !flash[:notice].blank? %>
    <div class = "alert alert-info">
       <%= flash[:notice] %>
    </div>
 <% end %>
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="control_panel.scss">
-    <title>Listing users</title>
-     
-</head>
-<body>
+    
+    <TITLE>Admin</TITLE>
 
-    <center>
-      <h1>Listing User</h1>
-    </center>
-    <br />
-    <br />
-    <div class="row">
+  </head>
+  <body>
+  <center>
+    <h1>Listing Users</h1>
+  </center>
+  <br />
+  <br />
+  <div class="row">
     <br>
       <%= render 'sidebar' %>
+       <div class="col-xs-12 col-sm-6 col-md-8">
 
       <div class="container">
-      <div class="row">
-      <% @users.each do |user| %>
+      
+      <% if !(@user.nil?) %> 
 
-        <div class="col-sm-10"><h1><%=@user.first_name%></h1></div>
-      </div>
+        <div class="col-xs-12 col-sm-6 col-md-8"><h1><%=@user.first_name%></h1>
       <div class="row">
-        <div class="col-sm-3"><!--left col-->
+        <div class="col-xs-12 col-sm-6 col-md-8"><!--left col-->
               
           <ul class="list-group">
             <li class="list-group-item list-group-item-info text-muted">Profile</li>
@@ -47,9 +47,21 @@
     </div>
     </div>
     </div>
-    <% end %>
-        
+    </div>
+    <% else %>
 
-   
-</body>
-</html>
+        <div class="col-xs-12 col-sm-6 col-md-8">
+        <center>
+            <h1>Sorry! no results to display</h1>
+        </center>
+
+        </div>
+  <% end %>
+  </div>
+  </div>
+  </div>
+  </body>
+  </html>
+
+    
+      

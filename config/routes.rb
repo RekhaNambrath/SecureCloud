@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'tpa/audit'
 
   get 'uploads' => 'file_uploads#index'
-  get 'control_panel' => 'control_panel#index'
+  get 'control_panel' => 'control_panels#index'
   resource :control_panel, only: [:index, :new, :create, :destroy]
   resource :control_panel do
     get 'user_search'

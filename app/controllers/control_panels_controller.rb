@@ -22,13 +22,18 @@ class ControlPanelsController < ApplicationController
   end
   def user_search
     if params[:search]
-      @users = User.search(params[:search]).order("created_at DESC")
+      @user = User.find_by_id(params[:search])
     else
       @users = User.all.order('created_at DESC')
     end
   end
   
   def file_search
+    if params[:search]
+      @file = FileUpload.find_by_id(params[:search])
+    else
+      @files = FileUpload.all.order('created_at DESC')
+    end
   end
   
 end
