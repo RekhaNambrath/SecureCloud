@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'tpa/new'
+
+  get 'tpa/create'
+
+  get 'tpa/edit'
+
+  get 'tpa/update'
+
+  get 'tpa/destroy'
+
+  get 'tpa/audit'
+
   get 'uploads' => 'file_uploads#index'
   get 'control_panel' => 'control_panel#index'
   resource :control_panel, only: [:index, :new, :create, :destroy]

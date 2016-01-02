@@ -40,10 +40,7 @@ class UsersController < ApplicationController
         render 'edit'
     end  
   end
-  def library
-    @user=User.find(params[:id])
-    redirect_to action: 'file_uploads/index', id: @user.id
-  end
+
   def destroy
     session[:user_id] = nil
     User.find(params[:id]).destroy
