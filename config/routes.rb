@@ -1,9 +1,32 @@
 Rails.application.routes.draw do
 
+
   resources :password_resets,     only: [:new, :create, :edit, :update]
+
+  get 'tpa/new'
+
+  get 'tpa/create'
+
+  get 'tpa/edit'
+
+  get 'tpa/update'
+
+  get 'tpa/destroy'
+
+  get 'tpa/audit'
+
+  get 'uploads' => 'file_uploads#index'
+  get 'control_panel' => 'control_panels#index'
   resource :control_panel, only: [:index, :new, :create, :destroy]
-  get 'admin' => 'control_panel#index'
-  get '/admin/files' => 'control_panel#file'
+  resource :control_panel do
+    get 'user_search'
+    get 'file_search'
+    get 'file'
+    get 'user'
+  end
+  #get 'admin' => 'control_panel#index'
+  #get '/admin/files' => 'control_panel#file'
+  #get '/admin/users' => 'control_panel#user'
   root 'static_pages#home'
   get 'static_pages/about'
   get 'static_pages/help'
@@ -15,6 +38,7 @@ Rails.application.routes.draw do
     resources :file_uploads
   end
   resources :sessions
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

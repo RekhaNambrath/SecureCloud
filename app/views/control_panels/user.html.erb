@@ -1,0 +1,68 @@
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="bootstrap.css">
+		<link rel="stylesheet" href="control_panel.scss">
+		
+		<TITLE>Admin</TITLE>
+
+	</head>
+	<body>
+	<center>
+		<h1>Listing Users</h1>
+	</center>
+<br />
+<br />
+	<div class="row">
+		<br>
+		<%= render 'sidebar' %>
+    <div class="col-md-3 col-sm-3 col-lg-3">
+    </div>
+    <div class="col-md-3 col-sm-3 col-lg-3">
+    </div>
+    <div class="col-md-3 col-sm-3 col-lg-3">
+    <%= form_tag(user_search_control_panel_path,:method => 'get',class: 'navbar-form', id: "search-form") do %>
+     <div class="input-group">
+      <%= text_field_tag :search, params[:search], size:50, placeholder: "Search by user id", class: "form-control" %>
+    <div class="input-group-btn">
+      <%= button_tag(type: "submit", class: "btn btn-default") do %>
+        <i class="glyphicon glyphicon-search"></i>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+</div>
+
+    <div class="col-xs-12 col-sm-6 col-md-8">
+  <br><br>
+		<table class = "table table-bordered table-striped">
+  		<thead>
+    	<tr>
+          <th>User id</th>
+      		<th>Name</th>
+          <th> No of files</th>
+      		
+    	</tr>
+  		</thead>
+
+  		<tbody>
+    		<% @users.each do |user| %>
+      		<tr>
+            <td><%= user.id %></td>
+        		<td><%= user.first_name + " " +user.last_name  %></td>
+            <td><%= user.file_uploads.count %> </td>
+        		
+      		</tr>
+    		<% end %>
+  		</tbody>
+		</table>
+	</div>
+  
+	</div>
+	</body>
+	</html>
