@@ -1,6 +1,6 @@
 class FileUploadsController < ApplicationController
   before_action :set_file_upload, only: [:show, :edit, :update]
-  before_filter :correct_user, only:[:index,:new,:create,:edit,:update,:destroy]
+  before_filter :same_user, only:[:index,:new,:create,:edit,:update,:destroy]
 
   # GET /file_uploads
   # GET /file_uploads.json

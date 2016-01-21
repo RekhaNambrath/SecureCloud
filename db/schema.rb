@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151227033445) do
+ActiveRecord::Schema.define(version: 20151229160718) do
 
   create_table "file_uploads", force: :cascade do |t|
     t.string   "fname",      limit: 255
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 20151227033445) do
     t.datetime "updated_at",                  null: false
     t.date     "date_of_birth"
     t.string   "gender",          limit: 255
+    t.string   "reset_digest",    limit: 255
+    t.datetime "reset_sent_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

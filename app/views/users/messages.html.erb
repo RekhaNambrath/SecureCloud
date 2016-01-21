@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= @user.first_name.upcase %></title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="users.scss">
+</head>
+<body>
+	<%= render 'user'%>
+  <br><br><br>
+	<div class="container">
+    <h3>&nbsp;&nbsp;&nbsp;Messages</h3>
+	<div class="row">
+		<div class="col-md-5">
+			<table class = "table table-bordered table-striped" width="0%">
+				<%= will_paginate %>
+  			<thead>
+    		<tr>
+		      <th>Owner</th>
+		      <th>Filename</th>
+		      <th>Keywords</th>
+		      <th>Hash value</th>
+		      <th colspan="5"></th>
+		    </tr>
+		  </thead>
+
+		  <tbody>
+		    <% @file_uploads.each do |file_upload| %>
+		      <tr>
+		        <td><%= file_upload.owner %></td>
+		        <td><%= file_upload.fname %></td>
+		        <td><%= file_upload.keywords %></td>
+		        <td><%= file_upload.hash_val %></td>
+		        <td><%= link_to 'Download', file_upload.attachment_url, class: "btn btn-success"%></td>
+		        <td><%= link_to 'Edit', edit_user_file_upload_path(current_user,file_upload), class: "btn btn-warning"%></td>
+		        <td><%= link_to 'Delete', user_file_upload_path(current_user,file_upload), method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
+		        <td><%= link_to 'Send Hash', edit_user_file_upload_path(current_user,file_upload), class: "btn btn-default"%></td>
+		        <td><%= link_to 'Request Audit', edit_user_file_upload_path(current_user,file_upload), class: "btn btn-info"%></td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	</div>
