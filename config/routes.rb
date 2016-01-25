@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get 'static_pages/help'
   get 'login'=> 'sessions#new'
   post 'login' => 'sessions#create'
-  get 'tpa' => 'pages#tpa'
+  #get 'tpa' => 'pages#tpa'
   delete 'logout'=> 'sessions#destroy'
   resources :users do 
     resources :file_uploads
