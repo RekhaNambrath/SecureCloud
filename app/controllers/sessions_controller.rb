@@ -8,12 +8,17 @@ class SessionsController < ApplicationController
   		@user = User.find_by_email(params[:session][:email])
   		if @user && @user.authenticate(params[:session][:password])
     			session[:user_id] = @user.id #creating a new session
-          #redirect_to :action 'users#show', id: @user.id
-          redirect_to current_user
-    	else
-          flash[:danger] = 'Invalid email/password combination' 
-          redirect_to '/login' #unsuccessful login
-  		end 
+    			if @user.tpa
+    				redirect_to tpa_path(@user)
+    			else
+    				
+          			#redirect_to :action 'users#show', id: @user.id
+          			redirect_to current_user
+          		end
+    	         else
+          		flash[:danger] = 'Invalid email/password combination' 
+          		redirect_to '/login' #unsuccessful login
+  		  end 
 	end
   #def show
     #render '/user'

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= @user.first_name.upcase %></title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="users.scss">
+</head>
+<body>
+	<%= render 'user'%>
+  <br><br><br>
+<div class="col-sm-9">
+            <ul class="nav nav-tabs">
+            <li class="<%= 'active' if params[:show] == 'show' %>"><strong> <%= link_to "Audit Messages",tpa_path(current_user.id)%></strong><span class="badge"> <%= @user.file_uploads.count %></span></li>
+            <li class="<%= 'active' if params[:edit] == 'edit' %>"><strong> <%= link_to "Update Request",edit_user_path(current_user)%></strong><span class="badge"> <%= @user.file_uploads.count %></span> </li>
+            <li class="<%= 'active' if params[:index] =='index' %>"><strong><%= link_to "CSP Messages",users_path%></strong><span class="badge"> <%= @user.file_uploads.count %></span> </li> 
+            </ul>
+        </div>

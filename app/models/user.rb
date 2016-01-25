@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
 	has_many :file_uploads, :dependent => :destroy
 
+<<<<<<< HEAD
    # Returns the hash digest of the given string.
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -36,13 +37,20 @@ class User < ActiveRecord::Base
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now
   end
+=======
+        has_many :request_messages, :dependent => :destroy
+
+>>>>>>> daa4da600637d6be8b81a3703ade5b4ce7d083ce
   def self.search(search)
-  if search
-    self.where("name like ?", "%#{search}%")
-  else
-    self.all
+    if search
+       self.where("name like ?", "%#{search}%")
+    else
+       self.all
   end
 end
 
 
+<<<<<<< HEAD
 end
+=======
+>>>>>>> daa4da600637d6be8b81a3703ade5b4ce7d083ce

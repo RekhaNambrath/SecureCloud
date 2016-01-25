@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RequestMessages</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="users.scss">
+</head>
+<body>
+	<%= render 'tpa'%>
+	<div class="col-md-3">
+    <h3>View All</h3>
+    <%= will_paginate %>
+  	<ul class="nav nav-pills nav-stacked">
+  		<% @req.each do |req|%>
+  			<li><%=req.user_id,req%></li>
+  		<%end%>
+  	</ul>
+  	<%= will_paginate %>
+
+  	</div>
+ </body>
+</html>
+

@@ -11,9 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20151229160718) do
+=======
 ActiveRecord::Schema.define(version: 20160105055408) do
+>>>>>>> daa4da600637d6be8b81a3703ade5b4ce7d083ce
 
   create_table "file_uploads", force: :cascade do |t|
     t.string   "fname",      limit: 255
@@ -59,10 +61,12 @@ ActiveRecord::Schema.define(version: 20160105055408) do
     t.datetime "updated_at",                                  null: false
     t.date     "date_of_birth"
     t.string   "gender",          limit: 255
+<<<<<<< HEAD
     t.string   "reset_digest",    limit: 255
     t.datetime "reset_sent_at"
+=======
     t.boolean  "tpa",                         default: false
-
+>>>>>>> daa4da600637d6be8b81a3703ade5b4ce7d083ce
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

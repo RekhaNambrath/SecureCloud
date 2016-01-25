@@ -23,10 +23,17 @@ class UsersController < ApplicationController
           render 'new'
         end
   end
+  def showMessages
+    @user=User.find(params[:user_id])
+    @msg=@user.request_messages.paginate(page: params[:page], :per_page => 10)
+  end
 	
   def show
    @user=User.all
     @user=User.find(params[:id])
+    if @user.tpa
+            redirect_to tpa_path(@user)
+    end
   end
   def edit
    @user=User.find(params[:id])
