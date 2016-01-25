@@ -15,16 +15,12 @@ class ApplicationController < ActionController::Base
   		redirect_to '/sessions/new' unless current_user 
 	end
   def correct_user #checking authorization
-    @user=User.find(params[:user_id])
+    @user=User.find(params[:id])
     redirect_to(root_url) unless @user==current_user
   end  
   def same_user
-    @user=User.find(params[:id])
-    if @user==current_user
-      true
-    else
-      false
-    end
+    @user=User.find(params[:user_id])
+    redirect_to(root_url) unless @user==current_user
   end 
 	
 include SimpleCaptcha::ControllerHelpers

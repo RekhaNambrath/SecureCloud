@@ -17,7 +17,9 @@ class TpaController < ApplicationController
   def audit
   end
   def index
+    @req=RequestMessage.all
   end
   def show
+    @user=User.find(params[:id])
   end
 end

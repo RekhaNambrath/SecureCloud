@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  update: false
+  audit: false
+  user_id: 1
+  file_id: 1
+  file_hash: MyString
+
+two:
+  update: false
+  audit: false
+  user_id: 1
+  file_id: 1
+  file_hash: MyString

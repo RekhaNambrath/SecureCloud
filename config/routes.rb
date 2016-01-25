@@ -1,17 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'tpa/new'
-
-  get 'tpa/create'
-
-  get 'tpa/edit'
-
-  get 'tpa/update'
-
-  get 'tpa/destroy'
-
-  get 'tpa/audit'
-
+  resources :tpa
   get 'uploads' => 'file_uploads#index'
   resource :control_panel, only: [:index, :new, :create, :destroy]
   get 'admin' => 'control_panel#index'
@@ -24,7 +13,9 @@ Rails.application.routes.draw do
   get 'tpa' => 'pages#tpa'
   delete 'logout'=> 'sessions#destroy'
   resources :users do 
+    get '/messages'=>'users#showMessages'
     resources :file_uploads
+
   end
   resources :sessions
   # The priority is based upon order of creation: first created -> highest priority.

@@ -18,7 +18,6 @@
           <ul class="list-group">
             <li class="list-group-item list-group-item-info text-muted">Profile</li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>First name</strong></span> <%= @user.first_name%></li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Last name</strong></span> <%= @user.last_name%></li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Email</strong></span> 
             <%= @user.email %></li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Gender</strong></span> 
@@ -31,15 +30,20 @@
         <div class="col-sm-9">
         <nav class="navbar navbar-inverse">
           <ul class="nav navbar-nav">
-            <li class="<%= 'active' if params[:show] == 'show' %>"><strong> <%= link_to "Home",user_path(current_user.id)%></strong></li>
+            <li class="<%= 'active' if params[:show] == 'show' %>"><strong> <%= link_to "Home",tpa_path(current_user.id)%></strong></li>
             <li class="<%= 'active' if params[:edit] == 'edit' %>"><strong> <%= link_to "Edit Profile",edit_user_path(current_user)%></strong> </li>
             <li class="<%= 'active' if params[:index] =='index' %>"><strong><%= link_to "View all Users",users_path%></strong> </li> 
-            <li><strong><%= link_to "Library",user_file_uploads_path(current_user)%></strong> </li> 
-            <li><strong><%= link_to "Messages",user_messages_path(@user.id)%></strong> </li> 
             <li><strong><%= link_to "destroy", @user, method: :delete,data: { confirm: "You sure?" } %></strong></li> 
           </ul>
         </nav>
          <hr>
+        </div>
+        <div class="col-sm-9">
+            <ul class="nav nav-tabs">
+            <li class="<%= 'active' if params[:show] == 'show' %>"><strong> <%= link_to "Audit Messages",tpa_path(current_user.id)%></strong><span class="badge"> <%= @user.file_uploads.count %></span></li>
+            <li class="<%= 'active' if params[:edit] == 'edit' %>"><strong> <%= link_to "Update Request",edit_user_path(current_user)%></strong><span class="badge"> <%= @user.file_uploads.count %></span> </li>
+            <li class="<%= 'active' if params[:index] =='index' %>"><strong><%= link_to "CSP Messages",users_path%></strong><span class="badge"> <%= @user.file_uploads.count %></span> </li> 
+            </ul>
         </div>
     <%=yield%>   
 

@@ -11,5 +11,6 @@ class User < ActiveRecord::Base
 	validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
 	has_many :file_uploads, :dependent => :destroy
+  has_many :request_messages, :dependent => :destroy
 
 end
