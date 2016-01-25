@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="bootstrap.css">
+	<link rel="stylesheet" href="control_panel.scss">
+		
+</head>
+<body>
+	<div class="col-md-3 col-sm-3 col-lg-3">
+		<ul class="nav nav-pills nav-stacked">
+		<li class=" nav-first nav-home nav-path-selected active nav-item-1"><%= link_to "Dashboard", control_panel_path %></li>
+	
+		<li class=" nav-item-167"><%= link_to "Users", user_control_panel_path %></li>
+        <li class=" nav-item-130"><%= link_to "Files", file_control_panel_path %></li>
+
+        <li class=" nav-item-130"><a href="/blog/" target="_self"  class=" nav-item-130 "  >TPA</a></li>
+        <li class=" nav-item-979"><a href="/catalog/" target="_self"  class=" nav-item-979 "  >Catalog</a></li>
+        <li class=" nav-item-165"><a href="/bootswatch/" target="_self"  class=" nav-item-165 "  >Go Online</a></li>
+        <li class=" nav-last nav-item-1715"><a href="/custom/" target="_self"  class=" nav-last nav-item-1715 "  >Custom</a></li>
+        </ul>
+        </div>
+</body>
+</html>

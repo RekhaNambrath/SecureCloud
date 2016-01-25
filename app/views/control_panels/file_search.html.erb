@@ -1,0 +1,70 @@
+  <% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="control_panel.scss">
+    
+    <TITLE>Admin</TITLE>
+
+  </head>
+  <body>
+  <center>
+    <h1>Listing Files</h1>
+  </center>
+  <br />
+  <br />
+  <div class="row">
+    <br>
+      <%= render 'sidebar' %>
+       <div class="col-xs-12 col-sm-6 col-md-8">
+
+      <div class="container">
+      
+      <% if !(@file.nil?) %> 
+
+        <div class="col-xs-12 col-sm-6 col-md-8">
+
+        <table class = "table table-bordered table-striped">
+      <thead>
+      <tr>
+          <th>File id</th>
+          <th>Owner</th>
+          <th>Filename</th>
+          <th>Keywords</th>
+          <th>Attachment</th>
+      </tr>
+      </thead>
+
+      <tbody>
+         <tr>
+            <td><%= @file.id %></td>
+            <td><%= @file.user.first_name + " " +@file.user.last_name  %></td>
+            <td><%= @file.fname %></td>
+            <td><%= @file.keywords %></td>
+            <td><%= @file.attachment %></td>
+         </tr>
+    </tbody>
+   </table>
+  </div>
+    <% else %>
+
+        <div class="col-xs-12 col-sm-6 col-md-8">
+        <center>
+            <h1>Sorry! no results to display</h1>
+        </center>
+
+        </div>
+  <% end %>
+  </div>
+  </div>
+  </div>
+  </body>
+  </html>
+
+    
+      
