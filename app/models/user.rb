@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
        self.where("name like ?", "%#{search}%")
     else
        self.all
-  end
+    end
+ end
 end
 
 
