@@ -11,8 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
 ActiveRecord::Schema.define(version: 20160105055408) do
 
   create_table "file_uploads", force: :cascade do |t|
@@ -30,6 +28,8 @@ ActiveRecord::Schema.define(version: 20160105055408) do
   add_index "file_uploads", ["user_id"], name: "index_file_uploads_on_user_id", using: :btree
 
   create_table "request_messages", force: :cascade do |t|
+    t.boolean  "update"
+    t.boolean  "audit"
     t.string   "file_hash",      limit: 255
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 20160105055408) do
     t.string   "reset_digest",    limit: 255
     t.datetime "reset_sent_at"
     t.boolean  "tpa",                         default: false
-
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

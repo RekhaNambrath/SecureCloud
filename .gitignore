@@ -16,3 +16,6 @@
 !/log/.keep
 /tmp
 /config/application.yml
+db/migrate/20160104064721_removes_changes_to_request_messages.rb.bak
+db/migrate/20160104064915_add_to_request_messages.rb.bak
+
