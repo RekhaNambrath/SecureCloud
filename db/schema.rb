@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160105055408) do
+ActiveRecord::Schema.define(version: 20160209084857) do
 
   create_table "file_uploads", force: :cascade do |t|
     t.string   "fname",      limit: 255
@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(version: 20160105055408) do
   add_index "file_uploads", ["user_id"], name: "index_file_uploads_on_user_id", using: :btree
 
   create_table "request_messages", force: :cascade do |t|
-    t.boolean  "update"
-    t.boolean  "audit"
     t.string   "file_hash",      limit: 255
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
@@ -50,6 +48,15 @@ ActiveRecord::Schema.define(version: 20160105055408) do
 
   add_index "simple_captcha_data", ["key"], name: "idx_key", using: :btree
 
+  create_table "tpas", force: :cascade do |t|
+    t.string  "file_hash",       limit: 255
+    t.integer "file_uploads_id", limit: 4
+    t.integer "file_upload_id",  limit: 4
+  end
+
+  add_index "tpas", ["file_upload_id"], name: "index_tpas_on_file_upload_id", using: :btree
+  add_index "tpas", ["file_uploads_id"], name: "index_tpas_on_file_uploads_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name",      limit: 255
     t.string   "last_name",       limit: 255
@@ -59,9 +66,9 @@ ActiveRecord::Schema.define(version: 20160105055408) do
     t.datetime "updated_at",                                  null: false
     t.date     "date_of_birth"
     t.string   "gender",          limit: 255
+    t.boolean  "tpa",                         default: false
     t.string   "reset_digest",    limit: 255
     t.datetime "reset_sent_at"
-    t.boolean  "tpa",                         default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -69,4 +76,5 @@ ActiveRecord::Schema.define(version: 20160105055408) do
   add_foreign_key "file_uploads", "users"
   add_foreign_key "request_messages", "file_uploads"
   add_foreign_key "request_messages", "users"
+  add_foreign_key "tpas", "file_uploads"
 end
