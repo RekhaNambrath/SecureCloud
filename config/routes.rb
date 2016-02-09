@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     get 'file_search'
     get 'file'
     get 'user'
+    get 'send_hash'
   end
   #get 'admin' => 'control_panel#index'
   #get '/admin/files' => 'control_panel#file'

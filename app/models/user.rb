@@ -38,13 +38,14 @@ class User < ActiveRecord::Base
   end
   has_many :request_messages, :dependent => :destroy
 
+
   def self.search(search)
     if search
        self.where("name like ?", "%#{search}%")
     else
        self.all
-  end
+    end
+ end
 end
 
-end
 

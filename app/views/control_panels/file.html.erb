@@ -60,7 +60,7 @@
         		<td><%= file_upload.fname %></td>
 		        <td><%= file_upload.keywords %></td>
 		        <td><%= file_upload.attachment %></td>
-       			<td><%= link_to 'Send Hash', file_upload.attachment_url, class: "btn btn-info"%></td>
+       			<td><%= link_to 'Send Hash',send_hash_control_panel_path(@file_uploads, :fileid =>file_upload.id),class: "btn btn-info"%></td>
       		</tr>
     		<% end %>
   		</tbody>

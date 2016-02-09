@@ -47,6 +47,7 @@
             <td><%= @file.fname %></td>
             <td><%= @file.keywords %></td>
             <td><%= @file.attachment %></td>
+            <td><%= link_to 'Send Hash',send_hash_control_panel_path(@file_uploads, :fileid =>@file.id),class: "btn btn-info"%></td>
          </tr>
     </tbody>
    </table>

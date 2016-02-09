@@ -1,0 +1,27 @@
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+<!DOCTYPE html>
+<html>
+<body>
+		
+	<center>
+		<h1>Admin</h1>
+	</center>
+  <br />
+  <br />
+  <br>
+  <br>
+	<div class="row">
+		<br>
+		<%= render 'sidebar' %>
+    <div class="col-md-3 col-sm-3 col-lg-3">
+    <p id="notice"><%= "Hash successfully sent" %></p>
+	<%= link_to 'Back', file_control_panel_path %>
+    </div>
+    </div>
+  
+		</body>
+	</html>
