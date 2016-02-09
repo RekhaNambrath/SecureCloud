@@ -50,9 +50,13 @@ class FileUploadsController < ApplicationController
   # PATCH/PUT /file_uploads/1.json
   def update
     respond_to do |format|
+
       if @file_upload.update(file_upload_params)
         format.html { redirect_to user_file_upload_path, notice: 'File was successfully updated.' }
         format.json { render :show, status: :ok, location: @file_upload }
+        @md5 = Digest::MD5.file(@file_upload.attachment.path).hexdigest 
+        @file_upload[:hash_val]=@md5
+        @file_upload.save
       else
         format.html { render :edit }
         format.json { render json: @file_upload.errors, status: :unprocessable_entity }

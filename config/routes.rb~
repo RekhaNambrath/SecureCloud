@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+<<<<<<< HEAD
 
   resources :password_resets,     only: [:new, :create, :edit, :update]
 
@@ -16,9 +16,9 @@ Rails.application.routes.draw do
 
   get 'tpa/audit'
 
-
+=======
   resources :tpa
-
+>>>>>>> daa4da600637d6be8b81a3703ade5b4ce7d083ce
   get 'uploads' => 'file_uploads#index'
   get 'control_panel' => 'control_panels#index'
   resource :control_panel, only: [:index, :new, :create, :destroy]

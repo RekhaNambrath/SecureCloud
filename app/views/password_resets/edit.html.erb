@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Password Reset - Secure Cloud</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="users.scss">
+  </head>
+  <body>
+      <div class="container">
+          <div class="account-wall">
+          <div class="row">
+          <div class="col-sm-6 col-md-4 col-md-offset-4">
+          <h2 class="text-center login-title">Forgot your Password?</h2>
+          <h4 class="text-center login-title">Enter a new Password</h4>
+           
+          <%= flash[:danger]%>
+          <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %> 
+              <%= hidden_field_tag :email, @user.email %>
+              <%= f.password_field :password, :placeholder => "New Password" %> <br>
+              <%= f.submit "Confirm", class: "btn-submit" %>
+          <% end %>
+        <a href="/sessions/new" class="pull-right need-help">Log In </a>
+        <a href="/users/new" class="pull-left new-account">Create an account </a><br>
+        
+        </div>
+      </div>
+  </div>
+  </div>
+  </body>
+</html>
+

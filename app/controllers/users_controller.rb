@@ -47,7 +47,10 @@ class UsersController < ApplicationController
         render 'edit'
     end  
   end
-
+  def messages
+    render 'messages'
+    #@msg=RequestMessage.all
+  end
   def destroy
     session[:user_id] = nil
     User.find(params[:id]).destroy

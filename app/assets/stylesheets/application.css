@@ -16,4 +16,6 @@
  *= require_tree .
 */
 
-
+.footer{
+	padding-top: 160px;
+}
