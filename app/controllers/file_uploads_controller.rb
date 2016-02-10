@@ -4,6 +4,30 @@ class FileUploadsController < ApplicationController
 
   # GET /file_uploads
   # GET /file_uploads.json
+  
+  def send_hash
+      @user = User.find(params[:user_id])
+      @id1 = params[:user_id]
+      @file_uploads = FileUpload.find_by_id(params[:file_upload_id])
+      @md5 = Digest::MD5.file(@file_uploads.attachment.path).hexdigest 
+      @message = RequestMessage.create(:status_code=>502, :file_hash=>@md5, :file_upload_id=>@file_uploads[:id], :user_id=>@id1)
+      #if @message.save
+        redirect_to user_file_uploads_path
+      #end
+    end
+
+def audit
+      @user = User.find(params[:user_id])
+      @id1 = params[:user_id]
+      @file_uploads = FileUpload.find_by_id(params[:file_upload_id])
+      @md5 = Digest::MD5.file(@file_uploads.attachment.path).hexdigest 
+      @message = RequestMessage.create(:status_code=>503, :file_hash=>@md5, :file_upload_id=>@file_uploads[:id], :user_id=>@id1)
+      #if @message.save
+        redirect_to user_file_uploads_path
+      #end
+    end
+
+
   def index
     @user=User.find(params[:user_id])
     @file_uploads = @user.file_uploads.paginate(page: params[:page], :per_page => 10)
@@ -75,6 +99,21 @@ class FileUploadsController < ApplicationController
     end
   end
 
+  def send_hash_val
+    @id = params[:user_id]
+    @user=User.find(@id)
+    @msg = @user.request_messages.new
+    @msg[:file_upload_id] = params[:file_upload_id]
+    @msg[:file_hash] = @user.file_uploads.find(:user_id).hash_val
+    @msg[:status_code] = 500
+    if @msg.save
+      render "show"
+    else
+      render "edit"
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_file_upload
@@ -85,4 +124,9 @@ class FileUploadsController < ApplicationController
     def file_upload_params
       params.require(:file_upload).permit(:fname, :owner, :ftype, :keywords, :attachment)
     end
+
+    def send_hash_params
+      params.require(:request_message).permit(:user_id, :file_upload_id)
+    end
+
 end

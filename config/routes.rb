@@ -40,7 +40,10 @@ Rails.application.routes.draw do
   delete 'logout'=> 'sessions#destroy'
   resources :users do 
     get '/messages'=>'users#showMessages'
-    resources :file_uploads
+    resources :file_uploads do
+      get '/send_hash'=>'file_uploads#send_hash'
+      get '/audit'=>'file_uploads#audit'
+    end
 
   end
   resources :sessions
