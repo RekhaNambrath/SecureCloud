@@ -66,7 +66,7 @@ class ControlPanelsController < ApplicationController
 
   def delete_user
     @user = User.find_by_id(params[:usrid])
-    #@user.
+    @user.
     @user.destroy
     redirect_to :controller => 'control_panels', :action => 'user'     
   end

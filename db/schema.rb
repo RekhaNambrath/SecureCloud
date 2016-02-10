@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160209172414) do
+=======
+ActiveRecord::Schema.define(version: 20160209172318) do
+
+>>>>>>> 6a86dcff475fefa539eda23a48ef6ad673155ad0
 
   create_table "file_uploads", force: :cascade do |t|
     t.string   "fname",      limit: 255
@@ -86,6 +91,9 @@ ActiveRecord::Schema.define(version: 20160209172414) do
   add_foreign_key "file_uploads", "users"
   add_foreign_key "request_messages", "file_uploads"
   add_foreign_key "request_messages", "users"
+<<<<<<< HEAD
+=======
   add_foreign_key "tpa_csps", "file_uploads"
+>>>>>>> 5bc0c9594ffeecb9d1bd9045cb76eaa4d9446d5d
   add_foreign_key "tpas", "file_uploads"
 end

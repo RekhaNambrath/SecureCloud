@@ -29,8 +29,8 @@
         <td><%= link_to 'Download', file_upload.attachment_url, class: "btn btn-success"%></td>
         <td><%= link_to 'Edit', edit_user_file_upload_path(current_user,file_upload), class: "btn btn-warning"%></td>
         <td><%= link_to 'Delete', user_file_upload_path(current_user,file_upload), method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Send Hash', edit_user_file_upload_path(current_user,file_upload), class: "btn btn-default"%></td>
-        <td><%= link_to 'Request Audit', edit_user_file_upload_path(current_user,file_upload), class: "btn btn-info"%></td>
+        <td><%= link_to 'Send Hash', user_file_upload_send_hash_path(current_user,file_upload), class: "btn btn-default"%></td>
+        <td><%= link_to 'Request Audit', user_file_upload_audit_path(current_user,file_upload), class: "btn btn-info"%></td>
       </tr>
     <% end %>
   </tbody>
