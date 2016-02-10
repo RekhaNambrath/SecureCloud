@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160210143050) do
+=======
+ActiveRecord::Schema.define(version: 20160209172414) do
+>>>>>>> ff09240a4f9cf1ee2b7edbf7d0f235eeda6f963f
 
   create_table "file_uploads", force: :cascade do |t|
     t.string   "fname",      limit: 255
@@ -83,7 +87,6 @@ ActiveRecord::Schema.define(version: 20160210143050) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
-  add_foreign_key "file_uploads", "users"
   add_foreign_key "request_messages", "file_uploads"
   add_foreign_key "request_messages", "users"
   add_foreign_key "tpa_csps", "file_uploads"

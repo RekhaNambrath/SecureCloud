@@ -66,7 +66,10 @@ class ControlPanelsController < ApplicationController
 
   def delete_user
     @user = User.find_by_id(params[:usrid])
-    @user.
+    @files = @user.file_uploads.all
+    @files.each do |file|
+      FileUpload.find_by_id(file.id).destroy
+    end
     @user.destroy
     redirect_to :controller => 'control_panels', :action => 'user'     
   end
