@@ -36,15 +36,16 @@ class User < ActiveRecord::Base
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now
   end
-        has_many :request_messages, :dependent => :destroy
+  has_many :request_messages, :dependent => :destroy
+
 
   def self.search(search)
     if search
        self.where("name like ?", "%#{search}%")
     else
        self.all
-  end
+    end
+ end
 end
 
-end
 

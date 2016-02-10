@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160209172318) do
 
+
   create_table "file_uploads", force: :cascade do |t|
     t.string   "fname",      limit: 255
     t.string   "owner",      limit: 255
@@ -48,9 +49,21 @@ ActiveRecord::Schema.define(version: 20160209172318) do
 
   add_index "simple_captcha_data", ["key"], name: "idx_key", using: :btree
 
+  create_table "tpa_csps", force: :cascade do |t|
+    t.integer  "status_code",    limit: 4
+    t.string   "file_hash",      limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "file_upload_id", limit: 4
+  end
+
+  add_index "tpa_csps", ["file_upload_id"], name: "index_tpa_csps_on_file_upload_id", using: :btree
+
   create_table "tpas", force: :cascade do |t|
-    t.string  "file_hash",      limit: 255
-    t.integer "file_upload_id", limit: 4
+    t.string   "file_hash",      limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "file_upload_id", limit: 4
   end
 
   add_index "tpas", ["file_upload_id"], name: "index_tpas_on_file_upload_id", using: :btree
@@ -74,5 +87,9 @@ ActiveRecord::Schema.define(version: 20160209172318) do
   add_foreign_key "file_uploads", "users"
   add_foreign_key "request_messages", "file_uploads"
   add_foreign_key "request_messages", "users"
+<<<<<<< HEAD
+=======
+  add_foreign_key "tpa_csps", "file_uploads"
+>>>>>>> 5bc0c9594ffeecb9d1bd9045cb76eaa4d9446d5d
   add_foreign_key "tpas", "file_uploads"
 end
