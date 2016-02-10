@@ -28,6 +28,10 @@ Rails.application.routes.draw do
     get 'file'
     get 'user'
     get 'send_hash'
+    get 'blit_tpa_csp'
+    get 'blit_tpa_csp_inbox'
+    delete 'delete_message'
+    delete 'delete_user'
   end
   #get 'admin' => 'control_panel#index'
   #get '/admin/files' => 'control_panel#file'
